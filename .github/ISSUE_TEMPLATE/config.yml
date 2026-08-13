@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Support & troubleshooting
+    url: https://matrix.to/#/#general:start9.me
+    about: Not sure it is a bug? Ask in the community Matrix room. This tracker is for defects and requests, not support questions.
+  - name: 🗣️ Community forum
+    url: https://community.start9.com
+    about: Guides, hardware notes, and long-form discussion.
+  - name: 🛠️ Packaging & development chat
+    url: https://matrix.to/#/#developer-space:matrix.start9labs.com
+    about: Questions about packaging a service with the SDK, or building against StartOS.
+  - name: 🖥️ A bug in StartOS itself
+    url: https://github.com/Start9Labs/start-technologies/issues/new/choose
+    about: Defects in the OS, the CLI, the SDK, the registries, or the docs — anything that is not specific to one packaged service.

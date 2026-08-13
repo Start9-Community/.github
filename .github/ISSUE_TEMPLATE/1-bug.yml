@@ -1,0 +1,100 @@
+name: 🐛 Bug Report
+description: A defect in this StartOS service package.
+type: Bug
+body:
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I searched this repository's existing issues and this is not already reported.
+          required: true
+        - label: This is a problem with the **StartOS package** — how the service is built, configured, launched, updated, backed up, or wired to other services. A defect in the software itself belongs with the upstream project, not here.
+          required: true
+
+  - type: input
+    id: package-version
+    attributes:
+      label: Package version
+      description: Shown on the service's page in StartOS and on its marketplace listing. The part after the colon is the packaging revision, and it matters.
+      placeholder: 29.1.0:2
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: StartOS version
+      description: Shown in the UI under **System → About**. `start-cli -H https://<your-server> git-info` prints the exact build — the version string is stable across builds, so the git hash is what identifies the binary.
+      placeholder: 0.4.0.2 (git 1a2b3c4)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Architecture
+      options:
+        - x86_64 (AMD64)
+        - aarch64 (ARM64)
+        - Raspberry Pi 4
+        - RISC-V (RVA23)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What were you doing?
+      options:
+        - Installing the service
+        - Updating the service
+        - Starting or stopping the service
+        - Changing config, or running an action
+        - Backup or restore
+        - Dependencies or interfaces / addresses
+        - Using the service's own UI or API
+        - Other / unsure
+    validations:
+      required: true
+
+  - type: input
+    id: hardware
+    attributes:
+      label: Server hardware
+      description: Worth filling in for anything resource-heavy — board or machine, RAM, and the disks involved.
+      placeholder: Start9 Server Pure, 16GB, 2TB NVMe — or — Raspberry Pi 4 (8GB) + Samsung T7 SSD
+
+  - type: textarea
+    id: current
+    attributes:
+      label: What happens
+      description: The defect and how it manifests. Be specific about the failure — an error string, a wrong value, a hang.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen instead
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Number them, and say what you saw at the step where it went wrong.
+      placeholder: |
+        1. Install the service…
+        2. Set this config value…
+        3. Start it…
+        4. See error…
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs & evidence
+      description: The service's logs from its page in StartOS, plus screenshots. You can drag files into this box.
+      render: shell
